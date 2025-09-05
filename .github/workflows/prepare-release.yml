@@ -4,9 +4,10 @@ name: Prepare Release
 #  workflow_dispatch:
 on:
   push:
-    branches: [ 'release' ]
+#    branches: [ 'release' ]
+    branches: [ '**' ]
   pull_request:
-    branches: [ release ]
+#    branches: [ release ]
 
 jobs:
   test:
