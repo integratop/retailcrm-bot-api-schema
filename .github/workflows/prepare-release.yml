@@ -2,9 +2,8 @@ name: Prepare Release
 
 on:
   workflow_dispatch:
-#on:
-#  push:
-#    branches: [ '**' ]
+  push:
+    branches: [ '**' ]
 #  pull_request:
 
 jobs:
