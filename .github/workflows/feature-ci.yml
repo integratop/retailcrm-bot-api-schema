@@ -3,8 +3,8 @@ name: Feature CI
 on:
   push:
     branches: [ 'feature/**' ]
-  pull_request:
-    branches: [ develop ]
+#  pull_request:
+#    branches: [ develop ]
 
 jobs:
   test:
