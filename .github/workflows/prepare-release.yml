@@ -2,7 +2,6 @@ name: Feature CI
 
 on:
   workflow_dispatch:
-    branches: [ 'release' ]
 
 jobs:
   test:
