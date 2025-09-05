@@ -1,6 +1,6 @@
 {
   "name": "@integratop/retailcrm-bot-api-schema",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "RetailCRM Bot API OpenApi Specification",
   "private": true,
   "author": {
@@ -32,7 +32,7 @@
     "compile": "tsdown",
     "strip-comments": "scripts/strip-comments.ts ./dist/*.{js,d.ts}",
     "pretty-dist": "pnpm prettier --write ./dist/*.{js,d.ts}",
-    "copy-dist-files": "cp -r README.md src/schemas ./dist",
+    "copy-dist-files": "cp -r README.md LICENSE src/schemas ./dist",
     "gen-package-json": "scripts/gen-package-json.ts < package.json > dist/package.json",
     "build": "pnpm gen-schema-ts && pnpm pretty-schema-ts && pnpm compile && pnpm strip-comments && pnpm pretty-dist && pnpm copy-dist-files && pnpm gen-package-json",
     "lint": "tsc",
