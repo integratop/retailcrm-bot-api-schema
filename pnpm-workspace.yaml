@@ -1,1 +1,1 @@
-scriptShell: bash
+scriptShell: bash # GitHub Actions, wildcards: ./dist/*.{js,d.ts}
