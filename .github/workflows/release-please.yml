@@ -1,0 +1,58 @@
+name: release-please
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - release
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+#      - uses: actions/checkout@v4
+#      - uses: pkgxdev/setup@v4
+#        with:
+#          +: nodejs.org@24 pnpm.io@10.15.1 curl.se@8.15.0
+#      - run: pnpm install --frozen-lockfile
+#      - run: pnpm run test
+#      - run: pnpm run lint
+#      - run: pnpm run build
+#      - run: pnpm run test:node
+
+
+#      - name: push Deno release
+#        run: |
+#          git config user.name github-actions[bot]
+#          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+#          git remote add gh-token "https://${{ secrets.GITHUB_TOKEN}}@github.com/yargs/yargs.git"
+#          git checkout -b deno
+#          git add -f build
+#          git commit -a -m 'chore: ${{ steps.release.outputs.tag_name }} release'
+#          git push origin +deno
+#          git tag -a ${{ steps.release.outputs.tag_name }}-deno -m 'chore: ${{ steps.release.outputs.tag_name }} release'
+#          git push origin ${{ steps.release.outputs.tag_name }}-deno
+#        if: ${{ steps.release.outputs.release_created }}
+#
+#      - uses: actions/setup-node@v1
+#        with:
+#          node-version: 22
+#          registry-url: 'https://external-dot-oss-automation.appspot.com/'
+#        if: ${{ steps.release.outputs.release_created }}
+#      - run: npm install
+#        if: ${{ steps.release.outputs.release_created }}
+#      - run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+#        if: ${{ steps.release.outputs.release_created }}
+
+# debug edit

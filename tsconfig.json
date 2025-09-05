@@ -17,7 +17,8 @@
       "vitest/globals"
     ],
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "noUncheckedIndexedAccess": true
   },
   "include": ["src"],
   "exclude": ["**/*.test.ts"]
