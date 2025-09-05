@@ -1,6 +1,6 @@
 {
   "name": "@integratop/retailcrm-bot-api-schema",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "1.0.0",
   "description": "RetailCRM Bot API OpenApi Specification",
   "private": true,
   "author": {
