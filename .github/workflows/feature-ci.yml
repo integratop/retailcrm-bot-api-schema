@@ -12,15 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pkgxdev/setup@v4
-      - uses: pnpm/action-setup@v2
         with:
-          version: 8
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: 'pnpm'
+          +: pnpm.io@10.15.1 curl.se@8.15.0 nodejs.org@24 curl.se@8.15.0
+#      - uses: pnpm/action-setup@v2
+#        with:
+#          version: 8
+#      - uses: actions/setup-node@v4
+#        with:
+#          node-version: '24'
+#          cache: 'pnpm'
 
       - run: pwd && ls -lah
+      - run: pnpm -v
+      - run: node -v
       - run: pnpm install
       - run: pnpm run test
       - run: pnpm run build
