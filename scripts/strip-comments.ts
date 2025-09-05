@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pnpm dlx tsx
+#!/usr/bin/env -S pnpm tsx
 import { writeFile } from "node:fs/promises";
 import process from "node:process";
 import strip from "strip-comments";

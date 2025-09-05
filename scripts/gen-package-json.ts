@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pnpm dlx tsx
+#!/usr/bin/env -S pnpm tsx
 import { readFile } from "node:fs/promises";
 
 const input = JSON.parse(await readFile("/dev/stdin", "utf-8"));

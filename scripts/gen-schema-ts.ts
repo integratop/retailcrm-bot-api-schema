@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pnpm dlx tsx
+#!/usr/bin/env -S pnpm tsx
 import { createInterface } from "node:readline";
 import process from "node:process";
 
