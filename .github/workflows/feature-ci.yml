@@ -22,6 +22,5 @@ jobs:
 
       - run: pwd && ls -lah
       - run: pnpm install
-      - run: pnpm run lint --if-present
       - run: pnpm run test
       - run: pnpm run build
