@@ -1,7 +1,8 @@
-name: Feature CI
+name: Prepare Release
 
 on:
   workflow_dispatch:
+    branches: [ 'release' ]
 
 jobs:
   test:
