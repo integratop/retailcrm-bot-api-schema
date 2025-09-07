@@ -6,7 +6,7 @@ on:
     branches: [ 'feature/**' ]
 
 jobs:
-  test:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,4 +18,4 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run build
       - run: pnpm run test
-      - run: pnpm run test:node
+      - run: pnpm run test-node
