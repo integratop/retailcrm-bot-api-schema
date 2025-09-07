@@ -1,0 +1,49 @@
+name: update-schema
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 3 * * *' # Меньшая нагрузка: 00:00 до 07:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  download-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - uses: pkgxdev/setup@v4
+        with:
+          +: nodejs.org@24 pnpm.io@10.15.1
+
+      - run: pnpm install
+      - run: pnpm run download-schema
+        env:
+          RETAIL_CRM_BOT_API_SCHEMA_URL: ${{ secrets.RETAIL_CRM_BOT_API_SCHEMA_URL }}
+
+      - name: Check schema.json changing
+        id: schema_changing
+        run: |
+          if ! git diff --quiet HEAD -- src/schemas/schema.json; then
+            echo "schema_changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - run: pnpm run build
+        if: ${{ steps.schema_changing.outputs.schema_changed }}
+      - run: pnpm run test
+        if: ${{ steps.schema_changing.outputs.schema_changed }}
+      - run: pnpm run test-node
+        if: ${{ steps.schema_changing.outputs.schema_changed }}
+
+      - name: Commit changed schema
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add src/schemas/schema.json
+          git commit -am "feat(schema): обновление OpenAPI спецификации"
+          git push
+        if: ${{ steps.schema_changing.outputs.schema_changed }}

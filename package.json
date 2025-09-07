@@ -26,7 +26,7 @@
   },
   "scripts": {
     "clean": "rm -fr dist",
-    "download-schema": "curl -fsSL ${RETAIL_CRM_BOT_API_SCHEMA_URL?'Required'} -o src/schemas/schema.json",
+    "download-schema": "scripts/download-schema.ts ${RETAIL_CRM_BOT_API_SCHEMA_URL?'Required'} > src/schemas/schema.json",
     "gen-schema-ts": "scripts/gen-schema-ts.ts < src/schemas/schema.json > src/schema.ts",
     "pretty-schema-ts": "pnpm prettier --write src/schema.ts",
     "compile": "tsdown",

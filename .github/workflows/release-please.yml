@@ -19,7 +19,7 @@ jobs:
 
       - uses: pkgxdev/setup@v4
         with:
-          +: nodejs.org@24 pnpm.io@10.15.1 curl.se@8.15.0
+          +: nodejs.org@24 pnpm.io@10.15.1
 
       - name: Validate current commits with commitlint
         if: github.event_name == 'push'
@@ -36,8 +36,8 @@ jobs:
 
       - run: pnpm install
       - run: pnpm run lint
-      - run: pnpm run test
       - run: pnpm run build
+      - run: pnpm run test
       - run: pnpm run test-node
 
       - uses: googleapis/release-please-action@v4
