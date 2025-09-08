@@ -3,12 +3,10 @@ import { writeFile } from "node:fs/promises";
 import process from "node:process";
 import strip from "strip-comments";
 import { relative } from "node:path";
-import * as desm from "desm";
 import { createReadStream } from "node:fs";
 import { createInterface as readLine } from "node:readline";
 
-const __filename = desm.filename(import.meta.url);
-const __relative_filename = relative(desm.join(import.meta.url, ".."), __filename);
+const __name = "scripts/strip-comments.ts";
 
 async function main() {
   const paths = process.argv.splice(2);
@@ -22,7 +20,7 @@ async function main() {
     const lines = await Array.fromAsync(gen());
     let output = lines.join("\n");
     output = strip(output);
-    console.log(`[${__relative_filename}] 💾 ${path}`);
+    console.log(`[${__name}] 💾 ${path}`);
     await writeFile(path, output, "utf8");
   }
 }

@@ -9,7 +9,7 @@ export default defineConfig({
   format: ["esm"],
   // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
   target: "ES2020",
-  clean: false,
+  clean: true,
   dts: {
     // типы используем из зависимости, а не копируем в свои .d.ts (меньше к нам вопросов)
     resolve: false,
