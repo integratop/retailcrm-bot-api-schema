@@ -26,7 +26,10 @@
   },
   "scripts": {
     "clean": "rm -fr dist",
-    "download-schema": "scripts/download-schema.ts ${RETAIL_CRM_BOT_API_SCHEMA_URL?'Required'} > src/schemas/schema.json",
+    "download-schema": "scripts/download-schema.ts ${RETAIL_CRM_BOT_API_SCHEMA_URL?'Required'} > src/schemas/schema-raw.json",
+    "copy-schema": "cp src/schemas/schema-raw.json src/schemas/schema.json",
+    "patch-schema-create": "git diff -- src/schemas/schema.json > src/schemas/schema.patch",
+    "patch-schema": "git apply src/schemas/schema.patch",
     "gen-schema-ts": "scripts/gen-schema-ts.ts < src/schemas/schema.json > src/schema.ts",
     "pretty-schema-ts": "pnpm prettier --write src/schema.ts",
     "compile": "tsdown",
@@ -34,7 +37,9 @@
     "pretty-dist": "pnpm prettier --write ./dist/*.{js,d.ts}",
     "copy-dist-files": "cp -r README.md LICENSE src/schemas ./dist",
     "gen-package-json": "scripts/gen-package-json.ts < package.json > dist/package.json",
-    "build": "pnpm gen-schema-ts && pnpm pretty-schema-ts && pnpm compile && pnpm strip-comments && pnpm pretty-dist && pnpm copy-dist-files && pnpm gen-package-json",
+    "src": "pnpm copy-schema && pnpm patch-schema && pnpm gen-schema-ts && pnpm pretty-schema-ts",
+    "dist": "pnpm strip-comments && pnpm pretty-dist && pnpm copy-dist-files && pnpm gen-package-json",
+    "build": "pnpm src && pnpm compile && pnpm dist",
     "lint": "tsc",
     "test": "vitest --run",
     "test-node": "pkgx +nodejs.org@14.21.3 /usr/bin/env -S sh -c 'dist/cli.js --json > /dev/null && dist/cli.js --yaml > /dev/null'"
