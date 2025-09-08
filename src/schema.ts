@@ -2972,7 +2972,7 @@ export const schema: OpenAPIV3.Document = {
         description:
           "Представляет цепочку общения между пользователями и/или клиентом в определённом канале",
         type: "object",
-        required: ["id", "not_read_messages", "unread"],
+        required: ["id"],
         properties: {
           author_id: {
             type: "integer",
@@ -3279,17 +3279,7 @@ export const schema: OpenAPIV3.Document = {
       Message: {
         description: "Объект, представляющий одно чат‑сообщение",
         type: "object",
-        required: [
-          "actions",
-          "chat_id",
-          "id",
-          "is_edit",
-          "is_read",
-          "scope",
-          "status",
-          "time",
-          "type",
-        ],
+        required: ["chat_id", "id", "is_edit", "is_read", "scope", "status", "time", "type"],
         properties: {
           action: {
             allOf: [
