@@ -1,7 +1,7 @@
 # RetailCRM Bot API Schema
 
+[![License](https://img.shields.io/github/license/integratop/retailcrm-bot-api-schema)](https://opensource.org/licenses/MIT)
 [![npm version](https://img.shields.io/npm/v/@integratop/retailcrm-bot-api-schema.svg)](https://www.npmjs.com/package/@integratop/retailcrm-bot-api-schema)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 OpenAPI схема для REST Bot API CRM системы RetailCRM. Библиотека предоставляет полное описание API для работы с ботами, чатами, сообщениями, диалогами и другими сущностями RetailCRM.
 
@@ -85,7 +85,7 @@ pnpm build
 
 ## Лицензия
 
-MIT License.
+MIT License - смотрите файл [LICENSE](LICENSE) для подробностей.
 
 ## Версионирование
 
@@ -94,6 +94,10 @@ MIT License.
 ## Безопасность
 
 Если вы обнаружили уязвимость безопасности, пожалуйста, сообщите нам об этом.
+
+## Поддержка
+
+Если у вас есть вопросы или предложения, создайте issue в [GitHub репозитории](https://github.com/integratop/retailcrm-bot-api-effect/issues).
 
 ---
 
