@@ -63,10 +63,8 @@ jobs:
 
       - name: "Publish npm package"
         run: |
-          set -x
           cd dist
           rm -fr *.tgz
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-          cat .npmrc
           pnpm publish --registry https://registry.npmjs.org/ --tag latest --access public --no-git-checks
         if: ${{ steps.release.outputs.release_created }}
