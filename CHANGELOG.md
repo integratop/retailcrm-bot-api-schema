@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/integratop/retailcrm-bot-api-schema/compare/v1.1.0...v1.1.1) (2025-09-09)
+
+
+### Bug Fixes
+
+* исправление ярлыков в `README.md` ([f435833](https://github.com/integratop/retailcrm-bot-api-schema/commit/f43583307274c7310744072d6fbe09593aafed96))
+* чистка скрипта рабочего процесса `release-please.yml` ([e645aac](https://github.com/integratop/retailcrm-bot-api-schema/commit/e645aacbc5c5e2f084288f40f2c7dc83327998a0))
+
 ## [1.1.0](https://github.com/integratop/retailcrm-bot-api-schema/compare/v1.0.0...v1.1.0) (2025-09-09)
 
 
