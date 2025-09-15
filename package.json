@@ -45,7 +45,7 @@
     "test-node": "pkgx +nodejs.org@14.21.3 /usr/bin/env -S sh -c 'dist/cli.js --json > /dev/null && dist/cli.js --yaml > /dev/null'"
   },
   "dependencies": {
-    "commander": "^14.0.0",
+    "commander": "^14.0.1",
     "openapi-types": "^12.1.3",
     "yaml": "^2.0.0"
   },
